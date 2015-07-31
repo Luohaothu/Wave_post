@@ -1,0 +1,56 @@
+      CHARACTER*5 CNAME
+
+      INTEGER IT,ITE,ITB,MT,MX,MZ,MY,MX2,MZ2,MXH,MZH
+      
+      REAL RE,ARF,BAT,PW0      
+      REAL X,Y,Z,YP,X2,Z2
+      REAL C,A,LMD,KW,PAI
+      REAL ETAU,ETAD
+      
+      REAL UA,PA,VA,WA
+      REAL RE_UUA,RE_VVA,RE_WWA,RE_UVA 
+      REAL PHIX , PHIY , PHIZ
+      
+      COMPLEX U,V,W,P
+      
+      COMMON /IT/CNAME
+      COMMON /DS/RE,ARF,BAT,DT,MX,MY,MZ,MX2,MZ2,MXH,MZH,PW0
+
+	COMMON /XYZ/  X(0:NDX) & 
+      	           , Y(0:NDY) &
+                   , Z(0:NDZ) &
+                   ,X2(0:NDX2) &
+                   ,YP(0:NDX2,0:NDY,0:NDZ2) &
+                   ,Z2(0:NDZ2)
+     
+      COMMON /CONTROL/ C,A,LMD,KW,PAI
+     
+      COMMON /SD/U(0:NDXH-1,0:NDY,0:NDZ-1) &
+                 ,V(0:NDXH-1,0:NDY,0:NDZ-1) &
+                 ,W(0:NDXH-1,0:NDY,0:NDZ-1) 
+ 
+      COMMON /PRESS/P(0:NDXH-1,0:NDY,0:NDZ-1)
+      
+
+      COMMON /YWALL/ETAU(0:NDX2-1,0:NDZ2-1) &
+                    ,ETAD(0:NDX2-1,0:NDZ2-1)
+
+
+      COMMON /SDA/UA(0:NDX2/4,0:NDY),VA(0:NDX2/4,0:NDY) &
+                  ,WA(0:NDX2/4,0:NDY),PA(0:NDX2/4,0:NDY)
+
+      COMMON /RE_UUA/RE_UUA(0:NDX2/4,0:NDY) &
+                     ,RE_VVA(0:NDX2/4,0:NDY) &
+                     ,RE_WWA(0:NDX2/4,0:NDY) &
+                     ,RE_UVA(0:NDX2/4,0:NDY) &
+                     ,PFA( 0:NDX2/4 , 0:NDY)
+                     
+      REAL DPA,DRA,DRPA,DRFA 
+      COMMON /DR/    DPA(0:NDX2/4) & 
+                     ,DRA(0:NDX2/4) &
+                     ,DRPA(0:NDX2/4) &
+                     ,DRFA(0:NDX2/4)
+     
+	COMMON /PHIP/PHIX(0:NDX2-1,0:NDZ2-1,2) &
+                   ,PHIY(0:NDX2-1,0:NDZ2-1,2) &
+                   ,PHIZ(0:NDX2-1,0:NDZ2-1,2)
